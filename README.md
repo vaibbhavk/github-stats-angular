@@ -1,4 +1,4 @@
-# Get info on any GitHub profile and its repositories in this app.
+# Get info on any GitHub profile and its repositories by searching through username.
 
 ## Run Locally
 
