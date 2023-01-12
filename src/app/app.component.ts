@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Repo } from 'src/interfaces/repo';
-import { Observable, of } from 'rxjs';
 import { GithubService } from './github.service';
 import { Profile } from 'src/interfaces/profile';
 
@@ -40,7 +39,7 @@ export class AppComponent {
         this.isLoading = false;
       },
       next: (profile) => {
-        console.log(profile)
+        console.log(profile);
         this.error = '';
         this.profile = profile;
         this.isLoading = false;

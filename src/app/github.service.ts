@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Repo } from 'src/interfaces/repo';
-import { Profile } from 'src/interfaces/profile';
 import { catchError, map, tap } from 'rxjs/operators';
-import { EMPTY, iif, throwError } from 'rxjs';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

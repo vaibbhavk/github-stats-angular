@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Repo } from 'src/interfaces/repo';
-import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-user-repo',

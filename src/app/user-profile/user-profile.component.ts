@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { Profile } from 'src/interfaces/profile';
 import { Repo } from 'src/interfaces/repo';
 import { GithubService } from '../github.service';
-import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',
