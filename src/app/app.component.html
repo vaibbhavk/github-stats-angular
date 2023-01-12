@@ -16,9 +16,9 @@
     <span class="visually-hidden">Loading...</span>
   </div>
 
-  <app-user-profile [profile]="profile"></app-user-profile>
+  <app-user-profile [profile]="profile" [repos]="repos" *ngIf="!error"></app-user-profile>
 
-  <br/>
-
-  <app-user-repo [repos]="repos"></app-user-repo>
+  <div class="alert alert-danger mt-3" *ngIf="error" role="alert">
+   {{error}}
+  </div>
 </div>

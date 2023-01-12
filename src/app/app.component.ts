@@ -1,42 +1,50 @@
 import { Component } from '@angular/core';
 import { Repo } from 'src/interfaces/repo';
-import {Observable, of} from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { GithubService } from './github.service';
 import { Profile } from 'src/interfaces/profile';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-
-  constructor(private githubService: GithubService){}
+  constructor(private githubService: GithubService) {}
 
   title = 'my-app';
 
-  username: string = ""
-  isLoading: boolean = false
+  username: string = '';
 
-  profile: Profile
-  repos: Observable<Repo[]>
+  isLoading: boolean = false;
+  error: string = '';
 
-  searchForUser(event: { preventDefault: () => void; }){
+  profile: Profile;
+
+  repos: Repo[];
+
+  searchForUser(event: { preventDefault: () => void }) {
     event.preventDefault();
 
-    this.getProfile()
+    this.getProfile(this.username);
   }
 
-  getProfile(): void {
-   this.isLoading = true
-   this.githubService.getProfile().subscribe(profile => {
-    this.profile = profile
-   this.isLoading = false
-  })
-  }
+  getProfile(username: string): void {
+    this.isLoading = true;
+    this.repos = [];
 
-  getRepos(): void {
-   this.repos = this.githubService.getRepos();
+    this.githubService.getProfile(username).subscribe({
+      complete: () => {},
+      error: (error) => {
+        this.error = error.error.detail;
+        this.isLoading = false;
+      },
+      next: (profile) => {
+        console.log(profile)
+        this.error = '';
+        this.profile = profile;
+        this.isLoading = false;
+      },
+    });
   }
 }
-
