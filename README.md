@@ -34,6 +34,6 @@ Navigate to `http://localhost:4200/`.
 
 **Server:** FastAPI
 
-## Authors
+## Author
 
 - [@vaibbhavk](https://www.github.com/vaibbhavk)
